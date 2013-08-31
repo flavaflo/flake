@@ -1,0 +1,10 @@
+body {
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 1em;
+  font: normal 14px/1.5 "Lucida Grande", sans-serif;
+}
+
+h1, p {
+  margin-top: 0;
+}

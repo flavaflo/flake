@@ -1,3 +1,67 @@
 .flake {
+  display: block;
+  width: 20em;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.35);
+}
 
+.flake.is_active {
+  display: block;
+}
+
+
+
+.flake a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 3px 10px 3px 20px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+}
+
+.flake a:hover {
+  background: #333;
+  color: white;
+}
+
+.flake a.is_active:before {
+  content: "✔";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flake a.is_disabled {
+  opacity: 0.5;
+}
+
+.flake .separator {
+  border-bottom: 1px solid #ddd;
+}
+
+.flake ul {
+  list-style-type: none;
+  padding: 6px 0;
+  margin: 0;
+}
+
+.flake ul ul {
+  display: none;
+  position: absolute;
+}
+
+.flake ul li:hover ul {
+  display: block;
+}
+
+.flake .item {
+  display: block;
+  padding: 0.5em;
 }
