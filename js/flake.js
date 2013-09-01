@@ -5,28 +5,12 @@
   var flake = {
     init: function () {
       var self = this;
-      this.$flake = $('.flake');
       this.version = "10.2.r14";
-      this.lang = "de";
-      this.locales = {
-        en: {
-          zoomin: "Zoom In",
-          zoomout: "Zoom On",
-          showall: "Show all",
-          quality: "Quality",
-          quality_low: "Low",
-          quality_medium: "Medium",
-          quality_hight: "High",
-          play: "Play",
-          loop: "Loop"
-        },
-        de: {
+      this.$flake = $(this.template());
+      $('body').append(this.$flake);
 
-        }
-      };
-
-      document.oncontextmenu = function () {
-        flake.menu();
+      document.oncontextmenu = function (e) {
+        flake.menu(e);
         return false;
       };
 
@@ -35,13 +19,55 @@
         self.$flake.removeClass("is_active");
       });
     },
-
-    localizedString: function (identifier) {
-      return this.locales[this.lang][identifier] || identifier;
+    template: function () {
+      return '<div class="flake">' +
+          '<ul>' +
+            '<li><a href="#">Zoom In</a></li>' +
+            '<li><a href="#" class="is_disabled">Zoom Out</a></li>' +
+            '<li><a href="#">Show All</a></li>' +
+          '</ul>' +
+          '<hr/>' +
+          '<ul>' +
+            '<li>' +
+              '<a href="#">Quality</a>' +
+              '<ul>' +
+                '<li><a href="#">Low</a></li>' +
+                '<li><a href="#">Medium</a></li>' +
+                '<li><a href="#"class="is_active">High</a></li>' +
+              '</ul>' +
+            '</li>' +
+          '</ul>' +
+          '<hr/>' +
+          '<ul>' +
+            '<li><a href="#" class="is_active">Play</a></li>' +
+            '<li><a href="#" class="is_active">Loop</a></li>' +
+          '</ul>' +
+          '<hr/>' +
+          '<ul>' +
+            '<li><a href="#">Rewind</a></li>' +
+            '<li><a href="#">Forward</a></li>' +
+            '<li><a href="#">Back</a></li>' +
+          '</ul>' +
+          '<hr/>' +
+          '<ul>' +
+            '<li><a href="javascript:window.print();">Print...</a></li>' +
+          '</ul>' +
+          '<hr/>' +
+          '<ul>' +
+            '<li><a href="#">Settings...</a></li>' +
+            '<li><a href="#">Global Settings...</a></li>' +
+            '<li><a href="#">Adobe Flash Player ' + this.version + '</a></li>' +
+          '</ul>' +
+        '</div>';
     },
+    menu: function (e) {
+      this.$flake.toggleClass("is_active").css({
+        top: e.pageY,
+        left: e.pageX
+      });
+    },
+    mousePos: function () {
 
-    menu: function () {
-      this.$flake.toggleClass("is_active");
     },
     remove: function () {
       console.log("remove");

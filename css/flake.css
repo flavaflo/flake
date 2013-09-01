@@ -1,5 +1,6 @@
 .flake {
   display: none;
+  position: absolute;
   width: 20em;
   background: #fff;
   color: #333;
@@ -12,7 +13,13 @@
   display: block;
 }
 
-
+.flake hr {
+  height: 1px;
+  border: 0;
+  margin: 2px 0;
+  padding: 0;
+  background: #ddd;
+}
 
 .flake a {
   color: #333;
@@ -34,8 +41,8 @@
 .flake a.is_active:before {
   content: "✔";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 2px;
+  left: 5px;
 }
 
 .flake a.is_disabled {
