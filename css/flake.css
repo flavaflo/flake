@@ -1,6 +1,35 @@
 .flake {
-  display: none;
+  display: block;
   position: absolute;
+}
+
+.flake.is_active {
+  display: block;
+}
+
+.flake ul,
+.flake ul li {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flake a {
+  text-decoration: none;
+  display: block;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+}
+/* OS X */
+.flake_osx {
+  font: normal 14px/1.5 "Lucida Grande", sans-serif;
+}
+
+.flake_osx, .flake_osx .submenu {
   width: 20em;
   background: #fff;
   color: #333;
@@ -9,11 +38,13 @@
   box-shadow: 0 10px 15px rgba(0,0,0,0.35);
 }
 
-.flake.is_active {
-  display: block;
+.flake_osx .submenu {
+  position: absolute;
+  left: 100%;
+  border-top-left-radius: 0;
 }
 
-.flake hr {
+.flake_osx hr {
   height: 1px;
   border: 0;
   margin: 2px 0;
@@ -21,54 +52,106 @@
   background: #ddd;
 }
 
-.flake a {
+.flake_osx a {
   color: #333;
-  text-decoration: none;
-  display: block;
-  padding: 3px 10px 3px 20px;
-  line-height: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  text-overflow: ellipsis;
+  padding: 2px 10px 2px 20px;
 }
 
-.flake a:hover {
+.flake_osx a:hover {
   background: #333;
   color: white;
 }
 
-.flake a.is_active:before {
+.flake_osx a.is_active:before {
   content: "✔";
   position: absolute;
   top: 2px;
   left: 5px;
 }
 
-.flake a.is_disabled {
+.flake_osx .is_disabled {
   opacity: 0.5;
 }
 
-.flake .separator {
+.flake_osx .separator {
   border-bottom: 1px solid #ddd;
 }
 
-.flake ul {
-  list-style-type: none;
-  padding: 6px 0;
-  margin: 0;
+.flake_osx ul {
+  padding: 5px 0;
 }
 
-.flake ul ul {
+.flake_osx ul .submenu {
   display: none;
   position: absolute;
+  top: 0;
+  width: 200px;
+  left: 100%;
 }
 
-.flake ul li:hover ul {
+.flake_osx ul li:hover .submenu {
   display: block;
 }
 
-.flake .item {
+.flake_osx .item {
   display: block;
   padding: 0.5em;
+}
+
+
+
+/* Windows 7 */
+
+.flake_win7 {
+  font: normal 12px/1.5 "Tahoma", sans-serif;
+}
+
+.flake_win7, .flake_win7 .submenu {
+  width: 20em;
+  background: rgb(212,208,200);
+  color: #333;
+  border: 1px solid rgb(151,151,151);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.35);
+}
+
+/* Windows XP */
+.flake_winxp {
+  font: normal 12px/1.5 "Tahoma", sans-serif;
+}
+
+.flake_winxp .wrapper {
+  border-top: 1px solid white;
+  border-right: 1px solid rgb(128,128,128);
+  border-bottom: 1px solid rgb(128,128,128);
+  border-left: 1px solid white;
+}
+
+.flake_winxp, .flake_winxp .submenu {
+  width: 20em;
+  background: rgb(212,208,200);
+  color: #333;
+  border-top: 1px solid rgb(212,208,200);
+  border-right: 1px solid rgb(64,64,64);
+  border-bottom: 1px solid rgb(64,64,64);
+  border-left: 1px solid rgb(212,208,200);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.35);
+}
+
+.flake_winxp a {
+  color: black;
+  padding: 3px 10px 3px 20px;
+}
+
+.flake_winxp a:hover {
+  background: rgb(9,36,106);
+  color: white;
+}
+
+.flake_winxp hr {
+  height: 1px;
+  border: 0;
+  margin: 2px 0;
+  padding: 0;
+  background: rgb(128,128,128);
+  border-bottom: 1px solid white;
 }

@@ -5,6 +5,7 @@
   var flake = {
     init: function () {
       var self = this;
+      this.os = "osx"; // osx, win7, winxp
       this.version = "10.2.r14";
       this.$flake = $(this.template());
       $('body').append(this.$flake);
@@ -20,7 +21,7 @@
       });
     },
     template: function () {
-      return '<div class="flake">' +
+      return '<div class="flake flake_' + this.os + '"><div class="wrapper">' +
           '<ul>' +
             '<li><a href="#">Zoom In</a></li>' +
             '<li><a href="#" class="is_disabled">Zoom Out</a></li>' +
@@ -30,11 +31,11 @@
           '<ul>' +
             '<li>' +
               '<a href="#">Quality</a>' +
-              '<ul>' +
+              '<div class="submenu"><div class="wrapper"><ul>' +
                 '<li><a href="#">Low</a></li>' +
                 '<li><a href="#">Medium</a></li>' +
                 '<li><a href="#"class="is_active">High</a></li>' +
-              '</ul>' +
+              '</ul></div></div>' +
             '</li>' +
           '</ul>' +
           '<hr/>' +
@@ -58,16 +59,13 @@
             '<li><a href="#">Global Settings...</a></li>' +
             '<li><a href="#">Adobe Flash Player ' + this.version + '</a></li>' +
           '</ul>' +
-        '</div>';
+        '</div></div>';
     },
     menu: function (e) {
       this.$flake.toggleClass("is_active").css({
         top: e.pageY,
         left: e.pageX
       });
-    },
-    mousePos: function () {
-
     },
     remove: function () {
       console.log("remove");
